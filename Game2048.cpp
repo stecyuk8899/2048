@@ -82,7 +82,7 @@ void Cell::Put(ScreenMap scr)
 void Game2048::Init()
 {
 	const int dx = 2;
-	const int dy = 2;
+	const int dy = 3;
 	srand(time(NULL));
 	for (unsigned int i = 0; i < fld_width; i++)
 		for (unsigned int j = 0; j < fld_height; j++)
