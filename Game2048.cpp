@@ -250,7 +250,11 @@ void ChangeColor()
 	if (CheckColor(chooseT) && CheckColor(chooseB))
 		SetColor(chooseT, chooseB);
 	else
+	{
 		cout << "Error data! Enter again!!!" << endl;
+		cout << "Press any key to exit" << endl;
+		_getch();
+	}
 }
 
 bool CheckColor(int color)
