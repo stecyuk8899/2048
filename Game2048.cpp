@@ -45,6 +45,10 @@ void Screen::DisplayScore(int result)
 	len = strlen(resultBuf);
 	for (int i = 0; i < len; ++i)
 		scr[1][i] = resultBuf[i];
+	sprintf(resultBuf, "Exit to menu: Enter esc");
+	len = strlen(resultBuf);
+	for (int i = 0; i < len; ++i)
+		scr[2][i] = resultBuf[i];
 }
 
 void Screen::SetEnd() { scr[scr_height - 1][scr_width - 1] = '\0'; }
