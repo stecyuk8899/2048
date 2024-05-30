@@ -4,16 +4,18 @@ vector<Player> Player::ReadFromFile()
 {
 	ifstream in;
 	int size = 0;
-	in.open(filename);
-	if (in.is_open())
-		in >> size;
 	vector<Player> players;
 	string name = "";
 	int result = 0;
-	for(int i = 0; i < size; i++)
+	in.open(filename);
+	if (in.is_open())
 	{
-		in >> name >> result;
-		players.push_back(Player(name, result));
+		in >> size;
+		for (int i = 0; i < size; i++)
+		{
+			in >> name >> result;
+			players.push_back(Player(name, result));
+		}
 	}
 	in.close();
 	return players;
