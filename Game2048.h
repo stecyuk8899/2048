@@ -22,6 +22,7 @@ const string filename = "results.txt";
 void SetCurPos(int x, int y);
 void SetColor(int text, int bk);
 void ChangeColor();
+bool CheckColor(int color);
 
 typedef char ScreenMap[scr_height][scr_width];
 

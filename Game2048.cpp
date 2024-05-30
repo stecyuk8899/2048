@@ -247,7 +247,17 @@ void ChangeColor()
 	int chooseT, chooseB;
 	cout << "Choose the colors :\n0) Black;\n1) Blue;\n2) Green;\n3) Cyan;\n4) Red;\n5) Violet;\n6) Yellow;\n7) White;\n8) Grey.\nEnter text and background colors : ";
 	cin >> chooseT >> chooseB;
-	SetColor(chooseT, chooseB);
+	if (CheckColor(chooseT) && CheckColor(chooseB))
+		SetColor(chooseT, chooseB);
+	else
+		cout << "Error data! Enter again!!!" << endl;
+}
+
+bool CheckColor(int color)
+{
+	if (color < 0 || color > 8)
+		return false;
+	return true;
 }
 
 void WriteToFileSerice(Player player)
