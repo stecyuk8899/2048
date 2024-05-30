@@ -191,6 +191,7 @@ void Game2048::Move(int dx, int dy)
 	{
 		WriteToFileSerice(player);
 		Init();
+		player.SetResult(0);
 	}
 	else
 		if (moved)
