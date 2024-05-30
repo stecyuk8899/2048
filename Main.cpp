@@ -14,6 +14,7 @@ int main()
 	Game2048 game2048;
 	cout << "Your name : " << name << endl;
 	game2048.player.SetName(name);
+	char t;
 	while (!exit)
 	{
 		cout << "Enter option: \n1) Start game;\n2) Change color;\n3) Best results;\n0) Exit.\nEnter : ";
@@ -36,7 +37,7 @@ int main()
 			case '3':
 				game2048.player.Show(game2048.player.ReadFromFile());
 				cout << "Press any key to exit" << endl;
-				_getch();
+				t = _getch();
 				break;
 			case '0':
 			default:

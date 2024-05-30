@@ -1,4 +1,5 @@
 #include "Game2048.h"
+#undef max
 
 void SetCurPos(int x, int y)
 {
@@ -245,23 +246,23 @@ bool Game2048::CheckEndGame()
 void ChangeColor()
 {
 	int chooseT, chooseB;
-	cout << "Choose the colors :\n0) Black;\n1) Blue;\n2) Green;\n3) Cyan;\n4) Red;\n5) Violet;\n6) Yellow;\n7) White;\n8) Grey.\nEnter text and background colors : ";
-	cin >> chooseT >> chooseB;
-	if (CheckColor(chooseT) && CheckColor(chooseB))
-		SetColor(chooseT, chooseB);
-	else
-	{
-		cout << "Error data! Enter again!!!" << endl;
-		cout << "Press any key to exit" << endl;
-		_getch();
+	while (true) {
+		cout << "Choose the colors :\n0) Black;\n1) Blue;\n2) Green;\n3) Cyan;\n4) Red;\n5) Violet;\n6) Yellow;\n7) White;\n8) Grey.\nEnter text and background colors : ";
+		cin >> chooseT >> chooseB;
+		if (cin.fail()) {
+			system("cls");
+			cerr << "Invalid input. Please enter a valid number." << endl;
+			cin.clear();
+			cin.ignore(numeric_limits <streamsize>::max(), '\n');
+		}
+		else if (chooseT < 0 || chooseB < 0 || chooseT > 8 || chooseB > 8) {
+			system("cls");
+			cerr << "Invalid input. Please enter a valid number." << endl;
+		}
+		else
+			break;
 	}
-}
-
-bool CheckColor(int color)
-{
-	if (color < 0 || color > 8)
-		return false;
-	return true;
+	SetColor(chooseT, chooseB);
 }
 
 void WriteToFileSerice(Player player)
